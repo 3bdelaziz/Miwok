@@ -20,14 +20,15 @@ public class FragmentPagerAdapter extends androidx.fragment.app.FragmentPagerAda
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        if (position == 0) {
-            return new NumbersFragment();
-        } else if (position == 1) {
-            return new FamilyFragment();
-        } else if (position == 2) {
-            return new ColorsFragment();
-        } else {
-            return new PhrasesFragment();
+        switch (position) {
+            case 0:
+                return new NumbersFragment();
+            case 1:
+                return new FamilyFragment();
+            case 2:
+                return new ColorsFragment();
+            default:
+                return new PhrasesFragment();
         }
     }
 

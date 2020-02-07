@@ -15,10 +15,8 @@ import java.util.ArrayList;
 public class WordAdapter extends ArrayAdapter<Word> {
 
     private int mColorResourceId;
-    private TextView miwokTextView, defaultTextView;
-    private ImageView imageView;
 
-    public WordAdapter(Context context, ArrayList<Word> words, int colorResourceId) {
+    WordAdapter(Context context, ArrayList<Word> words, int colorResourceId) {
         super(context, 0, words);
         mColorResourceId = colorResourceId;
     }
@@ -33,13 +31,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         Word currentWord = getItem(position);
 
-        miwokTextView = (TextView) convertView.findViewById(R.id.miwok_text_view);
+        TextView miwokTextView = convertView.findViewById(R.id.miwok_text_view);
         miwokTextView.setText(currentWord.getMiwokTranslation());
 
-        defaultTextView = (TextView) convertView.findViewById(R.id.default_text_view);
+        TextView defaultTextView = convertView.findViewById(R.id.default_text_view);
         defaultTextView.setText(currentWord.getDefaultTranslation());
 
-        imageView = (ImageView) convertView.findViewById(R.id.image);
+        ImageView imageView = convertView.findViewById(R.id.image);
         if (currentWord.hasImage()) {
             imageView.setImageResource(currentWord.getImageResourceId());
             imageView.setVisibility(View.VISIBLE);
